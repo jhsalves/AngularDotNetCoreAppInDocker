@@ -8,6 +8,6 @@ namespace clients.Api.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public DateTime BirthDate { get; set; }
-        public ICollection<ClientAddress> ClientAddresses { get; set; }
+        public ICollection<ClientAddress> ClientAddresses { get; set; } = new List<ClientAddress>();
     }
 }

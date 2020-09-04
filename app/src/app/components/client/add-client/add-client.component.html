@@ -12,19 +12,10 @@
                     [ngModel]="client.birthDate | date:'yyyy-MM-dd'" (ngModelChange)="client.birthDate = $event"
                     [value]="client.birthDate | date:'yyyy-MM-dd'" #BirthDate="ngModel" required>
             </div>
-            <!-- <div class="form-group">
-                <label for="description">Endereços</label>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" />
-                    <div class="input-group-append">
-                        <button class="btn btn-danger" type="button">Remover</button>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" />
-                </div>
-            </div> -->
 
+            <div class="form-group">
+                <client-addresses [adresses]="client.clientAddresses"></client-addresses>
+            </div>
             <button (click)="saveClient()" class="btn btn-success">Submit</button>
         </div>
 

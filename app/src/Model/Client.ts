@@ -1,8 +1,8 @@
-import { ClientAddress } from "./ClientAddress";
+import { ClientAddress } from "./clientAddress";
 
 export interface Client{
     id: number;
     name: string;
     birthDate: Date;
-    clientAdress?: ClientAddress | null | undefined;
+    clientAddresses?: ClientAddress[] | null | undefined;
 }

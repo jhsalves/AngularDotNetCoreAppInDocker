@@ -21,7 +21,9 @@ namespace clients.Api.Controllers
 
         [HttpGet("{id}")]
         public async Task<Client> Get(int id) =>
-            await _db.Clients.FirstOrDefaultAsync(x => x.Id == id);
+            await _db.Clients
+                     .Include(x => x.ClientAddresses)
+                     .FirstOrDefaultAsync(x => x.Id == id);
 
         [HttpGet]
         public async Task<IEnumerable<Client>> GetList() =>
@@ -44,6 +46,17 @@ namespace clients.Api.Controllers
             }
 
             _db.Entry(client).State = EntityState.Modified;
+
+            _db.RemoveRange(_db.ClientAddresses.Where(x => x.ClientId == client.Id));
+
+            await _db.SaveChangesAsync();
+
+            foreach (var address in client.ClientAddresses)
+            {
+                address.ClientId = client.Id;
+                address.Id = 0;
+                _db.ClientAddresses.Add(address);
+            }
 
             await _db.SaveChangesAsync();
 

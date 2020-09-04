@@ -1,48 +1,35 @@
 <div style="width: 400px; margin: auto;">
-    <div *ngIf="currentClient" class="edit-form">
-      <h4>Cliente</h4>
-      <form>
-        <div class="form-group">
-          <label for="title">Nome</label>
-          <input
-            type="text"
-            class="form-control"
-            id="title"
-            [(ngModel)]="currentClient.name"
-            name="title"
-          />
-        </div>
-        <div class="form-group">
-          <label for="description">Data de nascimento</label>
-          <input
-            type="date"
-            class="form-control"
-            id="description"
-            [(ngModel)]="currentClient.birthDate"
-            name="name"
-            [ngModel]="currentClient.birthDate | date:'yyyy-MM-dd'" (ngModelChange)="client.birthDate = $event"
-                [value]="currentClient.birthDate | date:'yyyy-MM-dd'" #BirthDate="ngModel" required
-          />
-        </div>
-      </form>
-  
-      <button class="badge badge-danger mr-2" (click)="deleteClient()">
-        Delete
+  <div *ngIf="currentClient" class="edit-form">
+    <h4>Cliente</h4>
+    <form>
+      <div class="form-group">
+        <label for="title">Nome</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="currentClient.name" name="title" />
+      </div>
+      <div class="form-group">
+        <label for="description">Data de nascimento</label>
+        <input type="date" class="form-control" id="description" [(ngModel)]="currentClient.birthDate" name="name"
+          [ngModel]="currentClient.birthDate | date:'yyyy-MM-dd'" (ngModelChange)="client.birthDate = $event"
+          [value]="currentClient.birthDate | date:'yyyy-MM-dd'" #BirthDate="ngModel" required />
+      </div>
+      <div class="form-group">
+        <client-addresses [adresses]="currentClient.clientAddresses"></client-addresses>
+      </div>
+    </form>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button class="btn btn-danger" (click)="deleteClient()">
+        Remover
       </button>
-  
-      <button
-        type="submit"
-        class="badge badge-success"
-        (click)="updateClient()"
-      >
-        Update
+
+      <button type="submit" class="btn btn-success" (click)="updateClient()">
+        Atualizar
       </button>
-      <p>{{ message }}</p>
     </div>
-  
-    <div *ngIf="!currentClient">
-      <br />
-      <p>Não é possivel acessa esse cliente...</p>
-    </div>
+    <p>{{ message }}</p>
   </div>
-  
+
+  <div *ngIf="!currentClient">
+    <br />
+    <p>Não é possivel acessa esse cliente...</p>
+  </div>
+</div>

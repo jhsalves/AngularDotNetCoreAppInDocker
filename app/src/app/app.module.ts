@@ -15,13 +15,15 @@ import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
+import { AddressComponent } from './components/client/address/address.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     AddClientComponent,
     ListClientComponent,
-    DetailsClientComponent
+    DetailsClientComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,
@@ -29,11 +31,7 @@ import { MatInputModule } from '@angular/material/input';
     FormsModule,
     CommonModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    MatDatepickerModule,
-    MatFormFieldModule,
-    MatNativeDateModule,
-    MatInputModule
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

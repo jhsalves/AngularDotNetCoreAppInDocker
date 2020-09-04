@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../../services/client.service';
-import { Client } from '../../../../Model/Client';
+import { Client } from '../../../../model/client';
+import { ClientAddress } from 'src/model/clientAddress';
 
 @Component({
   selector: 'app-add-client',
@@ -14,7 +15,8 @@ export class AddClientComponent implements OnInit {
   client: Client = {
     id: 0,
     name: '',
-    birthDate: new Date()
+    birthDate: new Date(),
+    clientAddresses: [] as ClientAddress[]
   };
 
   submitted = false;
