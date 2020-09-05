@@ -1,0 +1,15 @@
+<h4 *ngIf="update || adresses.length > 0"><strong>Endereços</strong></h4>
+<ul class="list-group">
+    <li *ngFor="let address of adresses" class="list-group-item d-flex justify-content-between align-items-center">
+        {{address.adressName}}
+        <button type="submit" *ngIf="update" (click)="removerEndereco(address)" class="btn btn-danger">
+            <i class="fa fa-close"></i>
+        </button>
+    </li>
+    <li *ngIf="update" class="list-group-item d-flex justify-content-between align-items-center">
+        <input type="text" class="form-control" [(ngModel)]="newAddress">
+        <button type="submit" (click)="addEndereco()" class="btn btn-success">
+            <i class="fa fa-plus"></i>
+        </button>
+    </li>
+</ul>
