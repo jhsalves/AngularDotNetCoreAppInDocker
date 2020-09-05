@@ -9,3 +9,4 @@ clients.Api/debug
 /Domain/Domain.csproj.user
 /Application/bin
 /Application/obj
+/app/node_modules
