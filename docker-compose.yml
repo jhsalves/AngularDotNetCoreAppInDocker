@@ -1,0 +1,23 @@
+version: "3"
+services:
+    backend:
+        build: ./api/.
+        image: clients.api:latest
+        networks:
+            - overlay
+        depends_on:
+            - database
+        ports:
+            - '5000:80'
+            - '5001:5001'
+    database:
+        image: "mcr.microsoft.com/mssql/server:2017-latest-ubuntu"
+        networks:
+            - overlay
+        environment:
+            ACCEPT_EULA: "Y"
+            SA_PASSWORD: "yourStrong(!)Password"
+            MSSQL_PID: "Express"
+
+networks:
+  overlay:

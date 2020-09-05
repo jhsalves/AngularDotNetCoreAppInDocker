@@ -10,3 +10,7 @@
 /api/Application/bin
 /api/Application/obj
 /app/node_modules
+/api/clients.Api/.vscode
+/api/.vs/ClientsApi/v16
+/api/.vs/ClientsApi/config
+/api/.vs/ClientsApi/DesignTimeBuild
