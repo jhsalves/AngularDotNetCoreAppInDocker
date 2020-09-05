@@ -1,4 +1,4 @@
-# AngularDotNetCoreAppInDocker
+# Angular .NET Core API, SQL SERVER and Docker
 
 A very simple sample using Angular, ASP.NET Core and Docker.
 
