@@ -6,7 +6,7 @@ The application is a basic CRUD of clients and their addresses. The goal was jus
 
 ##Running
 
-docker-compose up on the repository root will build the container images and then run all the containers. For run daemon mode include -d argument.
+```docker-compose up``` on the repository root will build the container images and then run all the containers. For run daemon mode include -d argument.
 
 
 ## Usage
