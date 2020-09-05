@@ -1,4 +1,4 @@
-namespace clients.Api.Entities
+namespace Domain.Entities
 {
     public class ClientAddress
     {

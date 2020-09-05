@@ -11,46 +11,46 @@ namespace clients.Api.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ClientController : ControllerBase
+    public class ClientAdressController : ControllerBase
     {
-        private readonly IClientAppService _clientAppService;
+        private readonly IClientAddressAppService _clientAdressAppService;
 
-        public ClientController(IClientAppService clientAppService)
+        public ClientAdressController(IClientAddressAppService clientAppService)
         {
-            _clientAppService = clientAppService;
+            _clientAdressAppService = clientAppService;
         }
 
         [HttpGet("{id}")]
-        public Client Get(int id) =>
-            _clientAppService.GetById(id);
+        public ClientAddress Get(int id) =>
+            _clientAdressAppService.GetById(id);
 
         [HttpGet]
-        public IEnumerable<Client> GetList() =>
-            _clientAppService
-                     .GetAll(x => x.ClientAddresses)
+        public IEnumerable<ClientAddress> GetList() =>
+            _clientAdressAppService
+                     .GetAll(x => x.Client)
                      .ToList();
 
         [HttpPost]
-        public IActionResult Post(Client client)
+        public IActionResult Post(ClientAddress client)
         {
-            _clientAppService.Add(client);
+            _clientAdressAppService.Add(client);
             return CreatedAtAction(nameof(Post), client);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, Client client){
+        public IActionResult Put(int id, ClientAddress client){
             if(client.Id == 0 || id != client.Id){
                 return BadRequest();
             }
 
-            await _clientAppService.Update(client);
+            _clientAdressAppService.Update(client);
 
             return Ok();
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id){
-            _clientAppService.Remove(_clientAppService.GetById(id));
+            _clientAdressAppService.Remove(_clientAdressAppService.GetById(id));
             return Ok();
         }
     }

@@ -1,3 +1,11 @@
 clients.Api/bin
 clients.Api/obj
 clients.Api/debug
+/clients.Api/.vs
+/Data/bin/Debug
+/Data/obj
+/Domain/bin
+/Domain/obj
+/Domain/Domain.csproj.user
+/Application/bin
+/Application/obj

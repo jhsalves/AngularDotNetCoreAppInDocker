@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace clients.Api.Entities
+namespace Domain.Entities
 {
     public class Client
     {
